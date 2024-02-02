@@ -15,13 +15,11 @@ async function main() {
   rl.on('line', function(line) {
     if (line.trim() === '.exit') {
       farewell(username);
-      process.exit(0);
     }
   });
 
   rl.on('SIGINT', function() {
     farewell(username);
-    process.exit(0);
   });
 }
 
