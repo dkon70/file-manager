@@ -12,12 +12,17 @@ async function ls() {
   const directories = [];
   const currentDir = await fs.readdir(process.cwd());
   for (let file of currentDir) {
-    const stat = await fs.lstat(file);
-    if (stat.isFile()) {
-      files.push(new TableLine(file, 'file'));
-    } else {
-      directories.push(new TableLine(file, 'directory'));
+    try {
+      const stat = await fs.lstat(file);
+      if (stat.isFile()) {
+        files.push(new TableLine(file, 'file'));
+      } else {
+        directories.push(new TableLine(file, 'directory'));
+      }
+    } catch(err) {
+      
     }
+
   }
   console.table([...directories, ...files]);
 }
