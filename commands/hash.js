@@ -10,6 +10,16 @@ async function hash(...pathArg) {
       hash.update(data);
       console.log(hash.digest('hex'));
   });
+
+  stream.on('error', function(err) {
+    if (err.message.startsWith('ENOENT')) {
+      console.error('Error: No such file.');
+    } else if (err.message.startsWith('EPERM')) {
+      console.error('Error: Permission denied.');
+    } else {
+      console.error(`Error: Can't calculate hash.`);
+    }
+  });
 }
 
 export default hash;
