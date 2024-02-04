@@ -1,5 +1,5 @@
 function getCommand(line) {
-  return line.split(' ')[0];
+  return line.split(' ');
 }
 
 export default getCommand;
