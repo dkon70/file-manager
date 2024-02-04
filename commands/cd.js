@@ -5,7 +5,7 @@ async function cd(...destination) {
   try {
     process.chdir(path.join(destinationStr.replace(/'|"/g, '')));
   } catch(err) {
-    console.log('Error: No such directory\n');
+    console.error('Error: No such directory\n');
   }
     
 }
