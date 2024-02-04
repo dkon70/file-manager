@@ -9,6 +9,7 @@ import rn from "./commands/rn.js";
 import cp from './commands/cp.js';
 import mv from './commands/mv.js';
 import os from './commands/os.js';
+import hash from './commands/hash.js';
 
 async function commandHandler(command) {
   const [cmd, ...args] = command;
@@ -42,6 +43,9 @@ async function commandHandler(command) {
       break;
     case 'os':
       await os(...args);
+      break;
+    case 'hash':
+      await hash(...args);
       break;
   }
 }
