@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+import quotesHandler from '../utils/quotesHandler.js';
 
 async function cat(...filePath) {
-  const fileName = filePath.join(' ').replace(/'|"/g, '');
+  let fileName = quotesHandler(...filePath);
   const pathToFile = path.resolve(fileName);
   const stream = fs.createReadStream(pathToFile, { encoding: 'utf-8' });
   stream.pipe(process.stdout);

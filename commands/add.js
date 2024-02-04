@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+import quotesHandler from '../utils/quotesHandler.js';
 
 async function add(...file) {
-  const fileName = file.join(' ').replace(/'|"/g, '');
+  const fileName = quotesHandler(...file);
   const pathToFile = path.join(process.cwd(), fileName);
   fs.open(pathToFile, 'wx', function(err, fd) {
     if (err) {
