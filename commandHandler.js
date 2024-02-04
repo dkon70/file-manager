@@ -1,3 +1,4 @@
+import getArgs from './utils/getArgs.js';
 import up from "./commands/up.js";
 import ls from "./commands/ls.js";
 import cd from "./commands/cd.js";
@@ -5,7 +6,7 @@ import cat from "./commands/cat.js";
 import add from "./commands/add.js";
 import rm from "./commands/rm.js";
 import rn from "./commands/rn.js";
-import getArgs from './utils/getArgs.js';
+import cp from './commands/cp.js';
 
 async function commandHandler(command) {
   const [cmd, ...args] = command;
@@ -30,6 +31,9 @@ async function commandHandler(command) {
       break;
     case 'rn':
       await rn(await getArgs(...args));
+      break;
+    case 'cp':
+      await cp(await getArgs(...args));
       break;
   }
 }

@@ -3,7 +3,7 @@ import path from 'path';
 
 async function cat(...filePath) {
   const fileName = filePath.join(' ').replace(/'|"/g, '');
-  const pathToFile = path.join(process.cwd(), fileName);
+  const pathToFile = path.resolve(fileName);
   const stream = fs.createReadStream(pathToFile, { encoding: 'utf-8' });
   stream.pipe(process.stdout);
 

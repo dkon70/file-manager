@@ -3,7 +3,7 @@ import path from 'path';
 
 async function rm(...file) {
   const fileName = file.join(' ').replace(/'|"/g, '');
-  const pathToFile = path.join(process.cwd(), fileName);
+  const pathToFile = path.resolve(fileName);
   fs.rm(pathToFile, function(err) {
     if (err) {
       console.error("Error: Can't remove file.");
