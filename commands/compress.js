@@ -5,7 +5,7 @@ import fs from 'fs';
 async function compress(args) {
   const [arg1, arg2] = args;
   const pathToInputFile = path.resolve(arg1);
-  const pathToOutputFile = path.resolve(arg2);
+  const pathToOutputFile = path.resolve(!arg2 || arg2 === '' ? arg1 : arg2, path.basename(pathToInputFile) + '.br');
   const readStream = fs.createReadStream(pathToInputFile);
   const writeStream = fs.createWriteStream(pathToOutputFile);
 
