@@ -3,7 +3,7 @@ import ls from "./commands/ls.js";
 import cd from "./commands/cd.js";
 
 async function commandHandler(command) {
-  const [cmd, arg1, arg2] = command;
+  const [cmd, ...args] = command;
   switch (cmd) {
     case 'up':
       await up();
@@ -12,7 +12,7 @@ async function commandHandler(command) {
       await ls();
       return;
     case 'cd':
-      await cd(arg1);
+      await cd(...args);
       return;
   }
 }
