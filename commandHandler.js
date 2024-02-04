@@ -47,6 +47,9 @@ async function commandHandler(command) {
     case 'hash':
       await hash(...args);
       break;
+    default:
+      console.error('Error: Invalid input.');
+      break;
   }
 }
 

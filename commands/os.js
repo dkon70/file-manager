@@ -22,6 +22,9 @@ async function os(flag) {
     case '--architecture':
       console.log(arch());
       break;
+    default:
+      console.error('Error: Invalid input.');
+      break;
   }
 }
 
