@@ -7,6 +7,7 @@ import add from "./commands/add.js";
 import rm from "./commands/rm.js";
 import rn from "./commands/rn.js";
 import cp from './commands/cp.js';
+import mv from './commands/mv.js';
 
 async function commandHandler(command) {
   const [cmd, ...args] = command;
@@ -34,6 +35,9 @@ async function commandHandler(command) {
       break;
     case 'cp':
       await cp(await getArgs(...args));
+      break;
+    case 'mv':
+      await mv(await getArgs(...args));
       break;
   }
 }
