@@ -7,7 +7,11 @@ async function os(flag) {
       console.log(JSON.stringify(EOL));
       break;
     case '--cpus':
-      console.log(cpus());
+      const res = [];
+      cpus().forEach((el) => {
+        res.push({ model: el.model, speed: el.speed });
+      });
+      console.log(res);
       break;
     case '--homedir':
       console.log(homedir());
