@@ -25,6 +25,10 @@ async function main() {
   rl.on('SIGINT', function() {
     farewell(username);
   });
+
+  process.on('uncaughtException', function() {
+    console.error('Error: Unexpected error');
+  });
 }
 
 await main();
