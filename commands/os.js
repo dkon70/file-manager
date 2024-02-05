@@ -1,7 +1,6 @@
 import { EOL, arch, cpus, homedir, userInfo } from 'os';
 
 async function os(flag) {
-  console.log(flag)
   switch (flag) {
     case '--EOL':
       console.log(JSON.stringify(EOL));
