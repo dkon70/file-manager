@@ -9,7 +9,7 @@ async function os(flag) {
     case '--cpus':
       const res = [];
       cpus().forEach((el) => {
-        res.push({ model: el.model, speed: el.speed });
+        res.push({ model: el.model, speed: el.speed / 1000 });
       });
       console.log(res);
       break;
