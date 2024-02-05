@@ -14,11 +14,11 @@ async function main() {
   await greetings(username);
   console.log(`You are currently in ${homeDir}`);
   const rl = readline.createInterface(stdin, stdout);
-  rl.on('line', function(line) {
+  rl.on('line', async function(line) {
     if (line.trim() === '.exit') {
-      farewell(username);
+      await farewell(username);
     }
-    commandHandler(getCommand(line));
+    await commandHandler(getCommand(line));
     console.log(`You are currently in ${process.cwd()}`);
   });
 

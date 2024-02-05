@@ -17,17 +17,21 @@ async function mv(args) {
   });
 
   writeStream.on('error', function(err) {
-    if (err.message.startsWith('ENOENT')) {
-      console.error("Error: Can't move file. Destination directory is incorrect.");
-    } else if (err.message.startsWith('EPERM')) {
-      console.error("Error: Can't move file. Permission denied.");
+    if (err) {
+      if (err.message.startsWith('ENOENT')) {
+        console.error("Error: Can't move file. Destination directory is incorrect.");
+      } else if (err.message.startsWith('EPERM')) {
+        console.error("Error: Can't move file. Permission denied.");
+      }
+    } else {
+      fs.rm(pathToInputFile, function() {
+
+      });
     }
+
   });
 
   readStream.pipe(writeStream);
-  fs.rm(pathToInputFile, function() {
-
-  });
 }
 
 export default mv;
